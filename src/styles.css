@@ -185,3 +185,11 @@
     scroll-behavior: auto !important;
   }
 }
+
+@layer base {
+  /* Grid children default to min-content width, which lets long words and
+     fixed-width children overflow on small screens. */
+  .grid > * {
+    min-width: 0;
+  }
+}
