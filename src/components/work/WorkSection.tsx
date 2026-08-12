@@ -35,11 +35,11 @@ function Title({ project }: { project: Project }) {
       to="/work/$slug"
       params={{ slug: project.slug }}
       data-cursor="View"
-      className="group inline-flex items-start gap-4"
+      className="group flex w-full max-w-full items-start gap-4"
     >
       <span className="meta pt-3">{project.number}</span>
-      <span>
-        <span className="display-lg block uppercase transition-transform duration-500 group-hover:translate-x-2">
+      <span className="min-w-0 flex-1">
+        <span className="display-lg block break-words uppercase transition-transform duration-500 group-hover:translate-x-2">
           {project.title}
         </span>
         <span className="mt-3 block text-base text-muted-foreground">{project.subtitle}</span>
