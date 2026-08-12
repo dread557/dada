@@ -110,7 +110,7 @@ function ProjectDetail() {
           </p>
         </div>
 
-        <div className="shell mt-24 grid gap-16 md:grid-cols-12">
+        <div className="shell mt-24 grid grid-cols-1 gap-16 md:grid-cols-12">
           <div className="md:col-span-7 md:col-start-4">
             {sections.map((s) => (
               <Reveal key={s.key} className="border-t border-border py-10">

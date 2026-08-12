@@ -59,7 +59,7 @@ export function Contact() {
         </h2>
       </Reveal>
 
-      <div className="mt-16 grid gap-14 md:grid-cols-12">
+      <div className="mt-16 grid grid-cols-1 gap-14 md:grid-cols-12">
         <div className="md:col-span-4">
           <p className="text-base leading-relaxed text-muted-foreground">
             Have a product that needs a frontend? Building something interesting? Just want to

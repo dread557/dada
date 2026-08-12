@@ -45,7 +45,7 @@ export function Hero() {
           />
         </h1>
 
-        <div className="mt-14 grid gap-10 border-t border-border pt-6 md:grid-cols-12">
+        <div className="mt-14 grid grid-cols-1 gap-10 border-t border-border pt-6 md:grid-cols-12">
           <Reveal delay={0.6} className="md:col-span-5">
             <p className="max-w-md text-base leading-relaxed text-muted-foreground md:text-lg">
               I turn complex product ideas into fast, accessible and intuitive digital
@@ -80,7 +80,7 @@ export function Intro() {
         </h2>
       </Reveal>
 
-      <div className="mt-16 grid gap-12 md:grid-cols-12">
+      <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-12">
         <Reveal delay={0.1} className="md:col-span-6 md:col-start-4">
           <p className="text-lg leading-relaxed md:text-xl">
             I'm a Frontend Engineer with 5+ years of experience working across fintech,
@@ -162,7 +162,7 @@ export function Experience() {
     <section className="shell py-24 md:py-40">
       <SectionHead id="experience" index="02" label="Experience" title="Where I've built" />
 
-      <div className="mt-20 grid gap-12 md:grid-cols-12">
+      <div className="mt-20 grid grid-cols-1 gap-12 md:grid-cols-12">
         <div className="hidden md:col-span-3 md:block">
           <div className="sticky top-32">
             <p className="meta">Timeline</p>
@@ -222,7 +222,7 @@ export function About() {
         </h2>
       </Reveal>
 
-      <div className="mt-16 grid gap-10 md:grid-cols-12">
+      <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-12">
         <Reveal className="md:col-span-5 md:col-start-7">
           <div className="space-y-5 text-base leading-relaxed text-muted-foreground">
             <p className="text-foreground">
@@ -323,7 +323,7 @@ export function Process() {
   return (
     <section className="shell py-24 md:py-32">
       <p className="meta">How I work</p>
-      <ol className="mt-10 grid gap-px border border-border bg-border md:grid-cols-5">
+      <ol className="mt-10 grid grid-cols-1 gap-px border border-border bg-border md:grid-cols-5">
         {process.map((p) => (
           <li key={p.n} className="bg-background p-6">
             <span className="meta">{p.n}</span>
@@ -350,7 +350,7 @@ export function Playground() {
         <span className="meta">05 / Playground</span>
         <span className="meta">Experiments</span>
       </div>
-      <ul className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {playground.map((item, i) => (
           <Reveal as="li" key={item.title} delay={i * 0.05}>
             <div className="group h-56 border border-border bg-surface p-5 transition-colors duration-300 hover:bg-ink hover:text-background">
@@ -372,7 +372,7 @@ export function Playground() {
 export function Personality() {
   return (
     <section className="shell py-24 md:py-32">
-      <div className="grid gap-10 border-t border-border pt-10 md:grid-cols-12">
+      <div className="grid grid-cols-1 gap-10 border-t border-border pt-10 md:grid-cols-12">
         <Reveal className="md:col-span-7">
           <h2 className="display-md uppercase">
             When I'm not
@@ -394,7 +394,7 @@ export function Personality() {
 export function Footer() {
   return (
     <footer className="shell border-t border-border py-14">
-      <div className="grid gap-10 md:grid-cols-12">
+      <div className="grid grid-cols-1 gap-10 md:grid-cols-12">
         <div className="md:col-span-5">
           <p className="font-display text-2xl uppercase">Dada Olawunmi</p>
           <p className="meta mt-2">Frontend Engineer</p>

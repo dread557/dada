@@ -81,7 +81,7 @@ function ProjectBlock({ project }: { project: Project }) {
   if (project.layout === "split-left" || project.layout === "split-right") {
     const infoFirst = project.layout === "split-left";
     return (
-      <article className="grid items-center gap-10 border-t border-border py-20 md:grid-cols-12 md:py-32">
+      <article className="grid items-center grid-cols-1 gap-10 border-t border-border py-20 md:grid-cols-12 md:py-32">
         <Reveal className={`md:col-span-5 ${infoFirst ? "" : "md:order-2 md:col-start-8"}`}>
           <Title project={project} />
           <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
@@ -116,7 +116,7 @@ function ProjectBlock({ project }: { project: Project }) {
 
   if (project.layout === "row") {
     return (
-      <article className="grid gap-8 border-t border-border py-20 md:grid-cols-12 md:py-32">
+      <article className="grid grid-cols-1 gap-8 border-t border-border py-20 md:grid-cols-12 md:py-32">
         <Reveal className="md:col-span-7">
           <Title project={project} />
           <p className="mt-6 max-w-md text-base leading-relaxed text-muted-foreground">
@@ -137,7 +137,7 @@ function ProjectBlock({ project }: { project: Project }) {
   return (
     <article className="border-t border-border py-20 md:py-32">
       <div className="-mx-5 md:-mx-10 xl:-mx-16">{visual}</div>
-      <Reveal className="mt-12 grid gap-8 md:grid-cols-12">
+      <Reveal className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-12">
         <div className="md:col-span-6">
           <Title project={project} />
         </div>
