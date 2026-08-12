@@ -21,7 +21,7 @@ export function Reveal({
     <Comp
       className={className}
       initial={reduced ? false : { opacity: 0, y: 24 }}
-      whileInView={reduced ? undefined : { opacity: 1, y: 0 }}
+      {...(reduced ? {} : { whileInView: { opacity: 1, y: 0 } })}
       viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
       transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
     >
@@ -47,7 +47,7 @@ export function LineReveal({
           <motion.span
             className="block"
             initial={reduced ? false : { y: "110%" }}
-            animate={reduced ? undefined : { y: "0%" }}
+            {...(reduced ? {} : { animate: { y: "0%" } })}
             transition={{
               duration: 1,
               delay: delay + i * 0.08,
@@ -110,7 +110,7 @@ export function Parallax({
 
   return (
     <div ref={ref} className={className}>
-      <motion.div style={reduced ? undefined : { y }}>{children}</motion.div>
+      <motion.div {...(reduced ? {} : { style: { y } })}>{children}</motion.div>
     </div>
   );
 }
