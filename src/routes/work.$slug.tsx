@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { projects } from "@/data/portfolio";
+import { projects, type Project } from "@/data/portfolio";
 import { Nav } from "@/components/site/Nav";
 import { CustomCursor, ScrollProgress, SmoothScroll } from "@/components/site/Chrome";
 import { Footer } from "@/components/sections/Sections";
@@ -61,7 +61,7 @@ const sections = [
 ];
 
 function ProjectDetail() {
-  const { project } = Route.useLoaderData();
+  const { project } = Route.useLoaderData() as { project: Project };
   const idx = projects.findIndex((p) => p.slug === project.slug);
   const next = projects[(idx + 1) % projects.length]!;
 
