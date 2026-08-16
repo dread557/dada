@@ -39238,7 +39238,7 @@ var init_router_CtT_h0EY = __esmMin((() => {
 			},
 			{
 				property: "og:image",
-				content: "/images/firs.png"
+				content: "/images/dada.JPG"
 			},
 			{
 				property: "og:image:alt",
@@ -39258,7 +39258,7 @@ var init_router_CtT_h0EY = __esmMin((() => {
 			},
 			{
 				name: "twitter:image",
-				content: "/images/firs.png"
+				content: "/images/dada.JPG"
 			}
 		] }),
 		component: lazyRouteComponent($$splitComponentImporter$1, "component")
