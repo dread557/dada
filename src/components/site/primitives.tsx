@@ -115,114 +115,29 @@ export function Parallax({
   );
 }
 
-/**
- * Abstract product visual. This is an illustrative composition, NOT a real
- * product screenshot. Replace with real imagery when screenshots are available.
- */
 export function ProjectVisual({
-  hue,
+  src,
   label,
   className,
-  variant = "dashboard",
 }: {
-  hue: number;
+  src: string;
   label: string;
   className?: string;
-  variant?: "dashboard" | "table" | "flow";
 }) {
-  const accent = `oklch(0.63 0.19 ${hue})`;
-  const soft = `oklch(0.9 0.05 ${hue})`;
-
   return (
     <div
       className={cn(
         "relative isolate overflow-hidden border border-border bg-surface",
         className,
       )}
-      role="img"
-      aria-label={`Abstract interface illustration representing ${label}`}
     >
-      <div
-        className="absolute inset-0 opacity-[0.55]"
-        style={{
-          backgroundImage: `linear-gradient(to right, var(--border) 1px, transparent 1px), linear-gradient(to bottom, var(--border) 1px, transparent 1px)`,
-          backgroundSize: "48px 48px",
-        }}
+      <img
+        src={src}
+        alt={label}
+        className="size-full object-contain object-center"
+        loading="lazy"
+        decoding="async"
       />
-      <div className="relative flex h-full flex-col p-4 sm:p-6">
-        <div className="flex items-center gap-2 border-b border-border pb-3">
-          <span className="size-2 rounded-full" style={{ background: accent }} />
-          <span className="size-2 rounded-full bg-border" />
-          <span className="size-2 rounded-full bg-border" />
-          <span className="meta ml-3 truncate">{label}</span>
-        </div>
-
-        {variant === "dashboard" && (
-          <div className="grid flex-1 grid-cols-3 gap-3 pt-4">
-            <div className="col-span-2 flex flex-col justify-end gap-2 border border-border bg-background p-3">
-              <div className="flex h-full items-end gap-[3px]">
-                {[38, 62, 30, 78, 52, 90, 44, 68, 34, 82, 58, 72].map((h, i) => (
-                  <div
-                    key={i}
-                    className="flex-1"
-                    style={{
-                      height: `${h}%`,
-                      background: i % 4 === 0 ? accent : soft,
-                    }}
-                  />
-                ))}
-              </div>
-              <span className="meta">Volume / 12 mo</span>
-            </div>
-            <div className="flex flex-col gap-3">
-              {[0, 1, 2].map((i) => (
-                <div key={i} className="flex-1 border border-border bg-background p-3">
-                  <div className="h-1.5 w-8 bg-border" />
-                  <div
-                    className="mt-2 h-3 w-14"
-                    style={{ background: i === 0 ? accent : "var(--border)" }}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
-
-        {variant === "table" && (
-          <div className="flex-1 space-y-2 pt-4">
-            {Array.from({ length: 7 }).map((_, i) => (
-              <div
-                key={i}
-                className="grid grid-cols-12 items-center gap-3 border-b border-border pb-2"
-              >
-                <div className="col-span-4 h-2" style={{ background: i === 1 ? accent : "var(--border)" }} />
-                <div className="col-span-3 h-2 bg-border/70" />
-                <div className="col-span-2 h-2 bg-border/70" />
-                <div className="col-span-3 h-2" style={{ background: soft }} />
-              </div>
-            ))}
-          </div>
-        )}
-
-        {variant === "flow" && (
-          <div className="flex flex-1 items-center justify-center gap-3 pt-4">
-            {[0, 1, 2].map((i) => (
-              <div key={i} className="flex items-center gap-3">
-                <div
-                  className="flex size-16 items-center justify-center border sm:size-20"
-                  style={{
-                    borderColor: i === 1 ? accent : "var(--border)",
-                    background: "var(--background)",
-                  }}
-                >
-                  <span className="meta">{`0${i + 1}`}</span>
-                </div>
-                {i < 2 && <div className="h-px w-6 bg-border sm:w-10" />}
-              </div>
-            ))}
-          </div>
-        )}
-      </div>
     </div>
   );
 }

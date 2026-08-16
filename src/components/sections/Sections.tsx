@@ -381,9 +381,9 @@ export function Personality() {
           </h2>
         </Reveal>
         <Reveal delay={0.1} className="md:col-span-4 md:col-start-9">
-          <p className="text-lg leading-snug">Football. Games. Music. Curiosity.</p>
+          <p className="text-lg leading-snug">Series. Football. Games. Music. Partying.</p>
           <p className="mt-4 text-sm text-muted-foreground">
-            And probably another browser tab I forgot to close.
+            Or probably scrolling endlessly on twitter or tiktok :/
           </p>
         </Reveal>
       </div>

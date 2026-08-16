@@ -29,9 +29,12 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "/images/firs.png" },
+      { property: "og:image:alt", content: "Selected interface work by Dada Olawunmi" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: title },
       { name: "twitter:description", content: description },
+      { name: "twitter:image", content: "/images/firs.png" },
     ],
   }),
   component: Index,
@@ -48,12 +51,12 @@ function Index() {
         <Hero />
         <Intro />
         <WorkSection />
-        <Impact />
+        {/* <Impact /> */}
         <Experience />
         <About />
         <Stack />
         <Process />
-        <Playground />
+        {/* <Playground /> */}
         <Personality />
         <Contact />
       </main>

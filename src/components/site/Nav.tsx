@@ -60,7 +60,7 @@ export function Nav() {
         <div className="shell flex items-center justify-between gap-6">
           <a href="#top" className="group flex flex-col leading-none">
             <span className="font-display text-base font-medium tracking-tight uppercase">
-              Dada Ol.
+              Dada
             </span>
             <span className="meta mt-1 hidden sm:block">Frontend Engineer</span>
           </a>

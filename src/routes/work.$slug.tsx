@@ -29,7 +29,10 @@ export const Route = createFileRoute("/work/$slug")({
         { property: "og:title", content: title },
         { property: "og:description", content: project.description },
         { property: "og:type", content: "article" },
+        { property: "og:image", content: project.image },
+        { property: "og:image:alt", content: `${project.title} interface` },
         { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:image", content: project.image },
       ],
     };
   },
@@ -101,13 +104,10 @@ function ProjectDetail() {
 
         <div className="shell mt-16">
           <ProjectVisual
-            hue={project.accentHue}
-            label={`${project.title} — illustrative interface`}
+            src={project.image}
+            label={`${project.title} interface`}
             className="aspect-[16/9] w-full"
           />
-          <p className="meta mt-3">
-            Illustrative composition — not a production screenshot
-          </p>
         </div>
 
         <div className="shell mt-24 grid grid-cols-1 gap-16 md:grid-cols-12">

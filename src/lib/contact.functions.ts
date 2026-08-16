@@ -18,14 +18,10 @@ export const sendContactMessage = createServerFn({ method: "POST" })
     const to = process.env["CONTACT_EMAIL"] ?? "dadaolawunmi09@gmail.com";
 
     if (!apiKey) {
-      // No email provider configured yet. Set RESEND_API_KEY (and optionally
-      // CONTACT_EMAIL) to enable delivery. The message is logged server-side.
-      console.info("[contact] message received (no email provider configured)", {
-        name: data.name,
-        email: data.email,
-        topic: data.topic,
-      });
-      return { ok: true as const, delivered: false as const };
+      console.error(
+        "[contact] RESEND_API_KEY is missing. Add it to .env.local and restart the dev server.",
+      );
+      throw new Error("Email provider is not configured");
     }
 
     const res = await fetch("https://api.resend.com/emails", {
@@ -44,6 +40,8 @@ export const sendContactMessage = createServerFn({ method: "POST" })
     });
 
     if (!res.ok) {
+      const detail = await res.text().catch(() => "");
+      console.error("[contact] Resend error", res.status, detail);
       throw new Error("Email delivery failed");
     }
 

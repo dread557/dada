@@ -1,8 +1,7 @@
 "use client";
 
-import { Link } from "@tanstack/react-router";
 import { AnimatePresence, motion, useMotionValue, useReducedMotion, useSpring } from "motion/react";
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import { projects, type Project } from "@/data/portfolio";
 import { Parallax, ProjectVisual, Reveal, SectionHead } from "@/components/site/primitives";
 
@@ -29,12 +28,47 @@ function Meta({ project }: { project: Project }) {
   );
 }
 
+function ProjectLink({
+  project,
+  className,
+  children,
+  onMouseEnter,
+  onMouseLeave,
+}: {
+  project: Project;
+  className?: string;
+  children: ReactNode;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
+}) {
+  if (!project.url) {
+    return (
+      <div className={className} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+        {children}
+      </div>
+    );
+  }
+
+  return (
+    <a
+      href={project.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-cursor="View"
+      aria-label={`Visit ${project.title} live project (opens in a new tab)`}
+      className={className}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
+      {children}
+    </a>
+  );
+}
+
 function Title({ project }: { project: Project }) {
   return (
-    <Link
-      to="/work/$slug"
-      params={{ slug: project.slug }}
-      data-cursor="View"
+    <ProjectLink
+      project={project}
       className="group flex w-full max-w-full items-start gap-4"
     >
       <span className="meta pt-3">{project.number}</span>
@@ -44,8 +78,10 @@ function Title({ project }: { project: Project }) {
         </span>
         <span className="mt-3 block text-base text-muted-foreground">{project.subtitle}</span>
       </span>
-      <span className="meta pt-3 transition-transform duration-500 group-hover:translate-x-2">→</span>
-    </Link>
+      <span className="meta pt-3 whitespace-nowrap transition-transform duration-500 group-hover:translate-x-2">
+        Visit project ↗
+      </span>
+    </ProjectLink>
   );
 }
 
@@ -64,17 +100,15 @@ function Highlight({ project }: { project: Project }) {
 }
 
 function ProjectBlock({ project }: { project: Project }) {
-  const visualVariant =
-    project.layout === "centered" ? "flow" : project.layout === "row" ? "table" : "dashboard";
-
   const visual = (
     <Parallax distance={30}>
-      <ProjectVisual
-        hue={project.accentHue}
-        label={`${project.title} — illustrative interface`}
-        variant={visualVariant}
-        className="aspect-[4/3] w-full transition-transform duration-700 hover:scale-[1.02] md:aspect-[16/10]"
-      />
+      <ProjectLink project={project} className="block">
+        <ProjectVisual
+          src={project.image}
+          label={`${project.title} interface`}
+          className="aspect-[4/3] w-full transition-transform duration-700 hover:scale-[1.02] md:aspect-[16/10]"
+        />
+      </ProjectLink>
     </Parallax>
   );
 
@@ -172,20 +206,20 @@ function WorkIndex() {
       <ul>
         {projects.map((p) => (
           <li key={p.slug}>
-            <Link
-              to="/work/$slug"
-              params={{ slug: p.slug }}
+            <ProjectLink
+              project={p}
               onMouseEnter={() => setActive(p)}
               onMouseLeave={() => setActive(null)}
-              onFocus={() => setActive(null)}
               className="grid grid-cols-12 items-center gap-4 border-b border-border py-5 transition-colors hover:text-accent"
             >
               <span className="meta col-span-2 md:col-span-1">{p.number}</span>
               <span className="col-span-7 font-display text-lg uppercase md:col-span-7 md:text-2xl">
                 {p.title}
               </span>
-              <span className="meta col-span-3 text-right md:col-span-4">{p.category}</span>
-            </Link>
+              <span className="meta col-span-3 text-right md:col-span-4">
+                <span className="hidden sm:inline">{p.category} · </span>Visit ↗
+              </span>
+            </ProjectLink>
           </li>
         ))}
       </ul>
@@ -202,9 +236,8 @@ function WorkIndex() {
             transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
           >
             <ProjectVisual
-              hue={active.accentHue}
+              src={active.image}
               label={`${active.title} preview`}
-              variant="dashboard"
               className="aspect-[4/3] w-full shadow-none"
             />
           </motion.div>

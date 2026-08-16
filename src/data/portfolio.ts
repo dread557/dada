@@ -11,13 +11,15 @@ export type Project = {
   metrics?: { value: string; label: string }[];
   layout: "stacked" | "split-left" | "centered" | "split-right" | "row";
   accentHue: number;
+  image: string;
+  url: string;
 };
 
 export const projects: Project[] = [
   {
     slug: "nrs-tms",
     number: "01",
-    title: "NRS TMS",
+    title: "FIRS TMS",
     subtitle: "VAT Transactions Monitoring System",
     description:
       "An enterprise transaction monitoring platform built for payment processors, transforming large volumes of financial data into actionable operational insights.",
@@ -25,19 +27,22 @@ export const projects: Project[] = [
     role: "Frontend Engineer",
     category: "Fintech",
     technologies: ["Next.js", "TypeScript", "WebSockets", "Zustand", "Tailwind CSS"],
+    metrics: [{ value: "Enterprise", label: "Transaction monitoring platform delivered" }],
     layout: "stacked",
     accentHue: 42,
+    image: "/images/firs.png",
+    url: "https://paymonitor.nrs.gov.ng/landing_page",
   },
   {
     slug: "raiz",
     number: "02",
     title: "RAIZ",
-    subtitle: "Payments & Merchant Infrastructure",
+    subtitle: "Africa's Trade Payment Infrastructure",
     description:
-      "A multi-currency payment experience helping businesses accept, manage and understand payments across fiat and crypto.",
+      "Pay suppliers. Collect globally. Built for African businesses that mean business, faster, smarter, and with confidence across borders.",
     year: "2025",
     role: "Frontend Developer",
-    category: "Payments",
+    category: "Fintech",
     technologies: [
       "Next.js",
       "TypeScript",
@@ -49,6 +54,8 @@ export const projects: Project[] = [
     metrics: [{ value: "80%", label: "Faster merchant onboarding" }],
     layout: "split-left",
     accentHue: 150,
+    image: "/images/raiz.png",
+    url: "https://raizfinance.com",
   },
   {
     slug: "dailybills",
@@ -57,16 +64,36 @@ export const projects: Project[] = [
     subtitle: "Multilingual Bill Payments Platform",
     description:
       "A multilingual digital payments platform for airtime, data, insurance, utilities and wallet services.",
-    year: "2024",
+    year: "2025",
     role: "Frontend Developer",
     category: "Fintech",
     technologies: ["Next.js", "TypeScript", "i18next"],
+    metrics: [{ value: "Multi-language", label: "Payments experience delivered" }],
     layout: "centered",
     accentHue: 250,
+    image: "/images/dailybills.png",
+    url: "https://dailybills.com.ng/",
+  },
+  {
+    slug: "qataloog",
+    number: "04",
+    title: "QATALOOG",
+    subtitle: "Curriculum-Aligned Content Distribution & Secure Online Examinations",
+    description:
+      "A curriculum-aligned content distribution engine for Institutions, students, teachers and publishers.",
+    year: "2024",
+    role: "Frontend Developer",
+    category: "Edtech",
+    technologies: ["React", "TypeScript", "Tailwind CSS"],
+    metrics: [{ value: "18+", label: "Landing pages delivered" }],
+    layout: "row",
+    accentHue: 200,
+    image: "/images/qataloog.png",
+    url: "https://qataloog.com/",
   },
   {
     slug: "school-management",
-    number: "04",
+    number: "05",
     title: "SCHOOL MANAGEMENT",
     subtitle: "Education Operations Platform",
     description:
@@ -78,21 +105,26 @@ export const projects: Project[] = [
     metrics: [{ value: "5,000+", label: "Users served" }],
     layout: "split-right",
     accentHue: 20,
+    image: "/images/lasmab.png",
+    url: "https://lasmab.org/",
   },
+
   {
     slug: "salestrack",
-    number: "05",
+    number: "06",
     title: "SALESTRACK",
     subtitle: "Store Management Platform",
     description:
       "A store management platform focused on inventory, transactions and operational workflows.",
-    year: "2024",
+    year: "2023",
     role: "Frontend Developer",
     category: "Commerce",
     technologies: ["React", "TanStack Query", "SCSS", "Bootstrap"],
     metrics: [{ value: "70%", label: "Faster POS flow" }],
     layout: "row",
     accentHue: 200,
+    image: "/images/salestrack.png",
+    url: "https://salestrack.app/",
   },
 ];
 
@@ -103,7 +135,7 @@ export const experience = [
     role: "Frontend Engineer",
     mode: "Hybrid",
     points: [
-      "Implemented the back office admin dashboard for a Nigerian stock market trading system.",
+      "Implemented the back office admin dashboard for a Nigerian stock market and fixed investments trading system.",
       "Designed interactive financial dashboards with Recharts, transforming complex API responses into actionable visualizations for asset distribution and performance tracking.",
       "Engineered automated KYC workflows and asynchronous data export features (CSV/PDF) using TanStack Query, optimizing the processing of thousands of investment records.",
       "Implemented a secure, cross-tab synchronized auto-logout system using Zustand and idle timer logic to protect sensitive administrative sessions.",
@@ -111,7 +143,7 @@ export const experience = [
   },
   {
     period: "2025 — Now",
-    company: "Raiz Digital Services",
+    company: "Raiz Finance",
     role: "Frontend Developer",
     mode: "Remote",
     points: [
