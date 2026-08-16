@@ -20,4 +20,10 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Lovable's nitro typings only expose a narrow subset; this Nitro option is required
+  // to avoid Rolldown circular chunks → `TypeError: __exportAll is not a function` on Vercel.
+  // https://github.com/rolldown/rolldown/issues/8184
+  nitro: {
+    inlineDynamicImports: true,
+  } as { preset?: string },
 });
